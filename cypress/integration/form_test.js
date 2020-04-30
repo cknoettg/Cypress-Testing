@@ -4,6 +4,9 @@ describe("Testing our form submission...", function(){
     });
     it("Testing our input values...", () => {
         cy.get("button").should('be.disabled');
+        //Stretch: Add test to see if axios post call is successful
+        cy.server()
+        cy.route('POST', "https://reqres.in/api/users");
         //test for when name is empty
         cy.get('input[name="name"]').should('have.value', '');
         cy.get('input[name="name"]')
