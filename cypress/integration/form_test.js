@@ -7,12 +7,14 @@ describe("Testing our form submission...", function(){
         //Stretch: Add test to see if axios post call is successful
         cy.server()
         cy.route('POST', "https://reqres.in/api/users");
+        //NOTE: Better way is should not have value
         //test for when name is empty
         cy.get('input[name="name"]').should('have.value', '');
         cy.get('input[name="name"]')
             .type("Corey")
             //note: should is our assert
             .should("have.value", "Corey");
+            //.should('not.have.value', '');
         //test for when email is empty
         cy.get('input[name="email"]').should('have.value', '');
         cy.get('input[name="email"]')
